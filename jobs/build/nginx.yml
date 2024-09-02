@@ -3,10 +3,10 @@
   apt:
     name: nginx-core
     state: present
-- name: Create ssl directory
+- name: Create ssl directories
   ansible.builtin.file:
     - state: directory
-    - path: "{{item}}"
+    - path: "{{ item }}"
   loop:
     - /etc/ssl
     - /etc/ssl/certs
