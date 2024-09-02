@@ -1,0 +1,12 @@
+---
+- name: pull down web2py
+  ansible.builtin.get_url:
+    url: https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip
+    dest: /tmp/web2py_src.zip
+- name: unzip web2py
+  ansible.builtin.unarchive:
+    src: /tmp/web2py_src.zip
+    dest: /var/www/html
+    remote_src: true
+    owner: www-data
+    group: www-data
