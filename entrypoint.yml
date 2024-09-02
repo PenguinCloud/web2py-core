@@ -5,6 +5,16 @@
   vars_files:
     - vars/base.yml
   tasks:
+    - name: build
+      tags:
+        - build
+      include_tasks:
+        file: jobs/build/{{ item }}.yml
+        apply:
+          tags:
+            - build
+      loop:
+        - build
     - name: Run And Configure
       tags:
         - run
@@ -12,27 +22,17 @@
         file: jobs/build/{{ item }}.yml
         apply:
           tags:
-            - build
+            - run
       loop:
         - run
-    - name: build
-      tags:
-        - build
-      include_tasks:
-        file: jobs/run/{{ item }}.yml
-        apply:
-          tags:
-            - build
-      loop:
-        - build
     - name: Run tests to make sure app is running as expected
       tags:
         - test
         - run
       include_tasks:
-        file: jobs/tests/{{tests.}}yml
-          apply:
-            tags:
-              - run
+        file: jobs/tests/{{tests}}yml
+        apply:
+          tags:
+            - run
       loop:
         - test
