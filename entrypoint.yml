@@ -14,5 +14,5 @@
           tags:
             - build
       loop:
-        -nginx
-        -web2py
+        - nginx
+        - web2py

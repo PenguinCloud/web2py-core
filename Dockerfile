@@ -12,7 +12,7 @@ WORKDIR /opt/web2py
 ARG APP_TITLE="PTGAPP" # Change this to actual title for Default
 
 # BUILD IT!
-RUN ansible-playbook build.yml -c local --tags=build
+RUN ansible-playbook entrypoint.yml -c local --tags=build
 
 # PUT YER ENVS in here
 ENV HELLO="WORLD"
