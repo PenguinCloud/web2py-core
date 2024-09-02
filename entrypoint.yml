@@ -1,5 +1,5 @@
 ---
-- name: YOUR PROJECT NAME
+- name: WEB2PY
   hosts: localhost
   connection: local
   vars_files:
@@ -14,7 +14,7 @@
           tags:
             - build
       loop:
-        - run.yml
+        - run
     - name: build
       tags:
         - build
@@ -24,16 +24,15 @@
           tags:
             - build
       loop:
-        - build.yml
+        - build
     - name: Run tests to make sure app is running as expected
       tags:
         - test
         - run
-        - build
       include_tasks:
         file: jobs/tests/{{tests.}}yml
           apply:
             tags:
-              - build
+              - run
       loop:
         - test
