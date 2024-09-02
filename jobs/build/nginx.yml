@@ -3,6 +3,14 @@
   apt:
     name: nginx-core
     state: present
+- name: Create ssl directory
+  ansible.builtin.file:
+    - state: directory
+    - path: "{{item}}"
+  loop:
+    - /etc/ssl
+    - /etc/ssl/certs
+    - /etc/ssl/private
 - name: general nginx ssl self signed
   ansible.builtin.command:
     cmd: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out \
