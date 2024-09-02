@@ -11,7 +11,7 @@
   ansible.builtin.unarchive:
     src: /tmp/web2py_src.zip
     dest: /var/www/html
-    remote_src: yes
+    remote_src: true
     owner: www-data
     group: www-data
 - name: general nginx ssl self signed
