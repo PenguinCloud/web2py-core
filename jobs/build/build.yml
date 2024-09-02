@@ -7,7 +7,7 @@
   ansible.builtin.get_url:
     url: https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip
     dest: /tmp/web2py_src.zip
-- name: unzip web2py 
+- name: unzip web2py
   ansible.builtin.unarchive:
     src: /tmp/web2py_src.zip
     dest: /var/www/html
@@ -26,11 +26,10 @@
     group: www-data
     mode: 0644
 - name: Enable nginx default
-  ansible.builtin.file: 
-    src: /etc/nginx/sites-available/default 
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/default
     dest: /etc/nginx/sites-enabled/default
     state: link
     owner: www-data
     group: www-data
     mode: 0644
-
