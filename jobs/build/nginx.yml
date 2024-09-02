@@ -21,7 +21,7 @@
     cmd: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 - name: Copy nginx template to /etc/nginx/sites-available/default
   ansible.builtin.template:
-    src: /etc/ansible/templates/nginx-default.j2
+    src: /etc/ansible/templates/default.j2
     dest: /etc/nginx/sites-available/default
     owner: www-data
     group: www-data
