@@ -9,7 +9,7 @@
       tags:
         - build
       include_tasks:
-        file: jobs/build/{{ item }}.yml
+        file: "{{ playbook_dir}}/jobs/build/{{ item }}.yml"
         apply:
           tags:
             - build
