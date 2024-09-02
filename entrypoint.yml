@@ -12,7 +12,7 @@
         file: "{{ playbook_dir}}/jobs/build/{{ item }}.yml"
         apply:
           tags:
-            - nginx
-            - web2py
+            - build
       loop:
-        - build
+        -nginx
+        -web2py
