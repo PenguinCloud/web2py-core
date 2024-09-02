@@ -4,8 +4,8 @@ LABEL org.opencontainers.image.authors="info@penguintech.group"
 LABEL license="GNU AGPL3"
 
 # GET THE FILES WHERE WE NEED THEM!
-COPY . /opt/manager/
-WORKDIR /opt/manager
+COPY . /opt/web2py/
+WORKDIR /opt/web2py
 
 
 # PUT YER ARGS in here
