@@ -7,7 +7,7 @@ LABEL license="GNU AGPL3"
 COPY . /opt/web2py/
 WORKDIR /opt/web2py
 
-
+RUN apt-get update 
 # PUT YER ARGS in here
 ARG APP_TITLE="PTGAPP" # Change this to actual title for Default
 
